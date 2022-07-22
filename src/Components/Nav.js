@@ -7,10 +7,10 @@ function Nav() {
       <Link to="/">
         <div>Home Page</div>
       </Link>
-      <Link to="/transaction">
+      <Link to="/transactions">
         <div>Show Transaction</div>
       </Link>
-      <Link to="/transaction/new">
+      <Link to="/transactions/new">
         <div>New Transaction</div>
       </Link>
     </nav>

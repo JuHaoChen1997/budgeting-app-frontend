@@ -1,5 +1,11 @@
+import TransacationRecords from "../Components/TransactionRecords";
+
 function Index() {
-  return <></>;
+  return (
+    <>
+      <TransacationRecords />
+    </>
+  );
 }
 
 export default Index;
