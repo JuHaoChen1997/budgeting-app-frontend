@@ -1,5 +1,20 @@
+import { Link } from "react-router-dom";
+
 function Nav() {
-  return <p>Hello World</p>;
+  return (
+    <nav>
+      <h1>Budget App</h1>
+      <Link to="/">
+        <div>Home Page</div>
+      </Link>
+      <Link to="/transaction">
+        <div>Show Transaction</div>
+      </Link>
+      <Link to="/transaction/new">
+        <div>New Transaction</div>
+      </Link>
+    </nav>
+  );
 }
 
 export default Nav;
