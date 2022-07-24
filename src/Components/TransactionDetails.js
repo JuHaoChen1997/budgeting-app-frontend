@@ -18,6 +18,15 @@ function TransactionDetails() {
       .catch((error) => console.error("catch", error));
   }, [index]);
 
+  const deleteTransaction = () => {
+    axios
+      .delete(`${API}/transactions/${index}`)
+      .then((response) => {
+        navigate("/transactions");
+      })
+      .catch((error) => console.error("catch", error));
+  };
+
   return (
     <section>
       <div>
@@ -62,6 +71,7 @@ function TransactionDetails() {
       <Link to={`/transactions/${index}/edit`}>
         <button>Edit</button>
       </Link>
+      <button onClick={deleteTransaction}>Delete</button>
     </section>
   );
 }
