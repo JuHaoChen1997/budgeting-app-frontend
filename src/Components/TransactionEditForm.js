@@ -88,6 +88,16 @@ function TransactionEditForm() {
           ></input>
         </div>
         <br />
+        <div>
+          <label htmlFor="category">Category</label>
+          <input
+            id="category"
+            value={transaction.category}
+            type="text"
+            onChange={handleTextChange}
+          ></input>
+        </div>
+        <br />
         <input type="submit" value="Create New Item" />
       </form>
     </section>
