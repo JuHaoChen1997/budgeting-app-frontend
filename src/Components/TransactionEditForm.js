@@ -100,6 +100,9 @@ function TransactionEditForm() {
         <br />
         <input type="submit" value="Create New Item" />
       </form>
+      <Link to={`/transactions/${index}`}>
+        <button>Back</button>
+      </Link>
     </section>
   );
 }
