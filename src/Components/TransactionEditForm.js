@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
-//API url
+import { useParams, Link, useNavigate } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
-function TransactionNewForm() {
+function TransactionEditForm() {
+  const { index } = useParams();
+
+  const navigate = useNavigate();
+
   const [transaction, setTransaction] = useState({
     item_name: "",
     amount: 0,
@@ -14,16 +16,24 @@ function TransactionNewForm() {
     category: "",
   });
 
-  const navigate = useNavigate();
-
-  const addTransaction = (newTransaction) => {
+  const updateTransaction = () => {
     axios
-      .post(`${API}/transactions`, newTransaction)
-      .then(() => {
-        navigate(`/transactions`);
+      .put(`${API}/transactions/${index}`, transaction)
+      .then((response) => {
+        setTransaction(response.data);
+        navigate(`/transactions/${index}`);
       })
-      .catch((e) => console.error("catch", e));
+      .catch((error) => console.error("catch", error));
   };
+
+  useEffect(() => {
+    axios
+      .get(`${API}/transactions/${index}`)
+      .then((response) => {
+        setTransaction(response.data);
+      })
+      .catch((e) => console.error(e));
+  }, [index]);
 
   const handleTextChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
@@ -31,7 +41,7 @@ function TransactionNewForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addTransaction(transaction);
+    updateTransaction(transaction);
   };
 
   return (
@@ -84,4 +94,4 @@ function TransactionNewForm() {
   );
 }
 
-export default TransactionNewForm;
+export default TransactionEditForm;

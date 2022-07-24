@@ -10,53 +10,56 @@ function TransactionDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${API}/transactions/${index}`).then((response) => {
-      setTransaction(response.data).catch((error) =>
-        console.error("catch", error)
-      );
-    });
+    axios
+      .get(`${API}/transactions/${index}`)
+      .then((response) => {
+        setTransaction(response.data);
+      })
+      .catch((error) => console.error("catch", error));
   }, [index]);
 
   return (
     <section>
       <div>
         <table>
-          <tr>
-            <td>
-              <span>Item Name : </span>
-            </td>
-            <td>{transaction.item_name}</td>
-          </tr>
-          <tr>
-            <td>
-              <span>Amount: </span>
-            </td>
-            <td>{transaction.amount}</td>
-          </tr>
-          <tr>
-            <td>
-              <span>Date: </span>
-            </td>
-            <td>{transaction.date}</td>
-          </tr>
-          <tr>
-            <td>
-              <span>From: </span>
-            </td>
-            <td>{transaction.from}</td>
-          </tr>
-          <tr>
-            <td>
-              <span>Category: </span>
-            </td>
-            <td>{transaction.category}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>
+                <span>Item Name : </span>
+              </td>
+              <td>{transaction.item_name}</td>
+            </tr>
+            <tr>
+              <td>
+                <span>Amount: </span>
+              </td>
+              <td>{transaction.amount}</td>
+            </tr>
+            <tr>
+              <td>
+                <span>Date: </span>
+              </td>
+              <td>{transaction.date}</td>
+            </tr>
+            <tr>
+              <td>
+                <span>From: </span>
+              </td>
+              <td>{transaction.from}</td>
+            </tr>
+            <tr>
+              <td>
+                <span>Category: </span>
+              </td>
+              <td>{transaction.category}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <Link to="/transactions">
         <button>Back</button>
       </Link>
-      <Link to={`/logs/${index}/edit`}>
+      <Link to={`/transactions/${index}/edit`}>
         <button>Edit</button>
       </Link>
     </section>
