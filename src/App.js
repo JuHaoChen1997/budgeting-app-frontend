@@ -5,6 +5,7 @@ import Nav from "./Components/Nav";
 //import Restful Routes
 import Home from "./Pages/Home";
 import Index from "./Pages/Index";
+import New from "./Pages/New";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/transactions" element={<Index />} />
+        <Route path="/transactions/new" element={<New />} />
       </Routes>
     </div>
   );
