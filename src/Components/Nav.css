@@ -1,0 +1,49 @@
+nav {
+    background-color: rgb(31,31,31);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 120px;
+}
+
+.app_name{
+    font-size: 48px;
+    margin-top: 20px;
+    color: rgb(235,235,235)
+}
+
+.app_name:hover{
+    color:gold
+}
+
+a{
+    text-decoration: none;
+}
+
+.homePage{
+    font-size: 40px;
+    margin-top: 20px;
+    color: rgb(235,235,235);
+}
+
+.homePage:active ,.showTransactions:active, .newTransactions:active{
+    background-color: #aaa212;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.homePage:hover, .showTransactions:hover, .newTransactions:hover{
+    color:gold;
+}
+
+.showTransactions{
+    font-size: 40px;
+    margin-top: 20px;
+    color: rgb(235,235,235);
+}
+
+.newTransactions{
+    font-size: 40px;
+    margin-top: 20px;
+    color: rgb(235,235,235);
+}
+
