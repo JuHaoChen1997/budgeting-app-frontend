@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import "./TransactionDetail.css";
 const API = process.env.REACT_APP_API_URL;
 
 function TransactionDetails() {
@@ -28,9 +29,9 @@ function TransactionDetails() {
   };
 
   return (
-    <section>
+    <section className="details">
       <div>
-        <table>
+        <table className="table table-dark">
           <tbody>
             <tr>
               <td>
@@ -66,12 +67,22 @@ function TransactionDetails() {
         </table>
       </div>
       <Link to="/transactions">
-        <button>Back</button>
+        <button type="button" className="btn btn-outline-dark">
+          Back
+        </button>
       </Link>
       <Link to={`/transactions/${index}/edit`}>
-        <button>Edit</button>
+        <button type="button" className="btn btn-outline-dark">
+          Edit
+        </button>
       </Link>
-      <button onClick={deleteTransaction}>Delete</button>
+      <button
+        type="button"
+        className="btn btn-outline-dark"
+        onClick={deleteTransaction}
+      >
+        Delete
+      </button>
     </section>
   );
 }
