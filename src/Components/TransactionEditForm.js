@@ -98,7 +98,7 @@ function TransactionEditForm() {
           ></input>
         </div>
         <br />
-        <input type="submit" value="Create New Item" />
+        <input type="submit" value="Edit Item" />
       </form>
       <Link to={`/transactions/${index}`}>
         <button>Back</button>

@@ -2,7 +2,7 @@ nav {
     background-color: rgb(31,31,31);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 120px;
+    height: 150px;
 }
 
 .app_name{

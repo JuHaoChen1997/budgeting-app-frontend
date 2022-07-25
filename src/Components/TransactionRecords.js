@@ -1,9 +1,21 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import TransacationRecord from "./TransactionRecord";
+import "./TransactionRecords.css";
 
 //API url
 const API = process.env.REACT_APP_API_URL;
+
+//helper function determines color of bank amount
+const colorOfAmount = (amount) => {
+  if (amount > 1000) {
+    return "green";
+  } else if (amount >= 0) {
+    return "yellow";
+  } else {
+    return "red";
+  }
+};
 
 function TransacationRecords() {
   const [transactions, setTransactions] = useState([]);
@@ -25,11 +37,19 @@ function TransacationRecords() {
   }, [transactions]);
 
   return (
-    <section>
+    <section className="transactions">
       <h2>
-        Bank Account Total: <span>{accountTotal}</span>
+        Bank Account Total:{" "}
+        <span className={colorOfAmount(accountTotal)}>{accountTotal}</span>
       </h2>
-      <table>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Transaction Name</th>
+            <th scope="col">Amount($)</th>
+          </tr>
+        </thead>
         <tbody>
           {transactions.map((transaction, index) => {
             return (

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./TransactionRecord.css";
 
 function TransactionRecord(props) {
   const { date, item_name, amount } = props.transaction;
@@ -6,13 +7,11 @@ function TransactionRecord(props) {
 
   return (
     <tr>
-      <td>{date}</td>
-
-      <td>
+      <td className="date">{date}</td>
+      <td className="itemName">
         <Link to={`/transactions/${index}`}>{item_name} </Link>
       </td>
-
-      <td>{amount}</td>
+      <td className="amount">{amount}</td>
     </tr>
   );
 }
