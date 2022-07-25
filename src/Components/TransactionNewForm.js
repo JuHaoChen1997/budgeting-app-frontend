@@ -113,9 +113,11 @@ function TransactionNewForm() {
           ></input>
         </div>
         <br />
-        <button type="button" className="btn btn-outline-dark">
-          Create New Item
-        </button>
+        <input
+          type="submit"
+          className="btn btn-outline-dark"
+          value="Create New Item"
+        />
       </form>
 
       <button type="button" className="btn btn-outline-dark">

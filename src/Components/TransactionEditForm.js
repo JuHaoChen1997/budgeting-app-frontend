@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import "./TransactionEditForm.css";
 const API = process.env.REACT_APP_API_URL;
 
 function TransactionEditForm() {
@@ -46,62 +47,85 @@ function TransactionEditForm() {
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="date">Date</label>
+      <form onSubmit={handleSubmit} className="editForm">
+        <div className="form-group">
+          <label htmlFor="date" className="description">
+            Date
+          </label>
           <input
             id="date"
             value={transaction.date}
             type="date"
             onChange={handleTextChange}
+            className="form-control"
             required
           ></input>
         </div>
         <br />
-        <div>
-          <label htmlFor="item_name">Name</label>
+        <div className="form-group">
+          <label htmlFor="item_name" className="description">
+            Name
+          </label>
           <input
             id="item_name"
             value={transaction.item_name}
             type="text"
             onChange={handleTextChange}
+            className="form-control"
+            required
           ></input>
         </div>
         <br />
-        <div>
-          <label htmlFor="amount">Amount</label>
+        <div className="form-group">
+          <label htmlFor="amount" className="description">
+            Amount
+          </label>
           <input
             id="amount"
             value={transaction.amount}
             type="number"
             onChange={handleTextChange}
+            className="form-control"
+            required
           ></input>
         </div>
         <br />
-        <div>
-          <label htmlFor="from">From</label>
+        <div className="form-group">
+          <label htmlFor="from" className="description">
+            From
+          </label>
           <input
             id="from"
             value={transaction.from}
             type="text"
             onChange={handleTextChange}
+            className="form-control"
+            required
           ></input>
         </div>
         <br />
-        <div>
-          <label htmlFor="category">Category</label>
+        <div className="form-group">
+          <label htmlFor="category" className="description">
+            Category
+          </label>
           <input
             id="category"
             value={transaction.category}
             type="text"
             onChange={handleTextChange}
+            className="form-control"
+            required
           ></input>
         </div>
         <br />
-        <input type="submit" value="Edit Item" />
+        <input
+          type="submit"
+          value="Edit Item"
+          className="btn btn-outline-dark"
+        />
       </form>
       <Link to={`/transactions/${index}`}>
-        <button>Back</button>
+        <button className="btn btn-outline-dark">Back</button>
       </Link>
     </section>
   );
